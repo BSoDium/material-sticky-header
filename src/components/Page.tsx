@@ -2,12 +2,7 @@ import { Stack } from "@mui/material";
 import StickyHeader from "./headers/StickyHeader";
 import StaticHeader from "./headers/StaticHeader";
 import { useRef } from "react";
-import {
-  cubicBezier,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "motion/react";
+import { useScroll, useTransform } from "motion/react";
 
 export type PageProps = {
   title: string;
@@ -22,7 +17,7 @@ export default function Page({ title, children }: PageProps) {
     target: staticHeaderRef,
     layoutEffect: true,
     axis: "y",
-    offset: ["-56px start", "end start"],
+    offset: ["-56px start", "56px start"],
   });
   const staticHeaderVisibility = useTransform(
     scrollYProgress,
@@ -50,6 +45,7 @@ export default function Page({ title, children }: PageProps) {
         flexDirection: "column",
         alignItems: "stretch",
         justifyContent: "flex-start",
+        scrollSnapType: "y proximity",
       }}
     >
       <StickyHeader title={title} visibility={stickyHeaderVisibility} />
@@ -58,7 +54,15 @@ export default function Page({ title, children }: PageProps) {
         ref={staticHeaderRef}
         visibility={staticHeaderVisibility}
       />
-      {children}
+      <Stack
+        sx={{
+          scrollSnapAlign: "start",
+          paddingTop: "3.5rem",
+          marginTop: "-3.5rem",
+        }}
+      >
+        {children}
+      </Stack>
     </Stack>
   );
 }

@@ -21,6 +21,7 @@ export default function StickyHeader({ title, visibility }: StickyHeaderProps) {
         zIndex: 1000,
         position: "sticky",
         alignItems: "center",
+        borderRadius: 0,
         width: "100%",
         padding: 1,
         gap: 2,

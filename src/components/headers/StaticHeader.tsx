@@ -24,6 +24,8 @@ export default function StaticHeader({
         paddingRight: 5,
         paddingBottom: 4,
         width: "100%",
+        scrollSnapAlign: "end",
+        borderRadius: 0,
       }}
       ref={ref}
     >
