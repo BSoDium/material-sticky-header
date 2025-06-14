@@ -9,7 +9,7 @@ export default function StickyHeader({ title }: StickyHeaderProps) {
   return (
     <Stack
       component={Paper}
-      elevation={1}
+      elevation={0}
       direction="row"
       sx={{
         position: "sticky",

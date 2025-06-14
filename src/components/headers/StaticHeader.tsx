@@ -2,9 +2,10 @@ import { Paper, Typography } from "@mui/material";
 
 export type StaticHeaderProps = {
   title: string;
+  ref?: React.Ref<HTMLDivElement>;
 };
 
-export default function StaticHeader({ title }: StaticHeaderProps) {
+export default function StaticHeader({ title, ref }: StaticHeaderProps) {
   return (
     <Paper
       elevation={0}
@@ -15,6 +16,7 @@ export default function StaticHeader({ title }: StaticHeaderProps) {
         paddingBottom: 4,
         width: "100%",
       }}
+      ref={ref}
     >
       <Typography variant="h4">{title}</Typography>
     </Paper>

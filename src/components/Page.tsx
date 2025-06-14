@@ -11,8 +11,12 @@ export type PageProps = {
 
 export default function Page({ title, children }: PageProps) {
   const containerRef = useRef(null);
-  useScroll({
+  const staticHeaderRef = useRef(null);
+  const { scrollY, scrollYProgress } = useScroll({
     container: containerRef,
+    target: staticHeaderRef,
+    layoutEffect: true,
+    axis: "y",
   });
 
   return (
@@ -33,7 +37,7 @@ export default function Page({ title, children }: PageProps) {
       }}
     >
       <StickyHeader title={title} />
-      <StaticHeader title={title} />
+      <StaticHeader title={title} ref={staticHeaderRef} />
       {children}
     </Stack>
   );
