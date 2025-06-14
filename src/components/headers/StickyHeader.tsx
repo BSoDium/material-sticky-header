@@ -16,6 +16,7 @@ export default function StickyHeader({ title, visibility }: StickyHeaderProps) {
       component={Paper}
       elevation={0}
       direction="row"
+      aria-label="Back"
       sx={{
         zIndex: 1000,
         position: "sticky",
