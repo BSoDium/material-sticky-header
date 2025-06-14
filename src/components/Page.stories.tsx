@@ -35,7 +35,7 @@ export const Default: Story = {
   args: {
     title: "Internet",
     children: (
-      <Stack gap={1}>
+      <Stack gap={1} py={1}>
         <Stack direction="row" alignItems="center" gap={2} px={2}>
           <NetworkCellIcon />
           <Stack flex={1}>

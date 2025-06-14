@@ -3,6 +3,7 @@ import StickyHeader from "./headers/StickyHeader";
 import StaticHeader from "./headers/StaticHeader";
 import { useRef } from "react";
 import { useScroll, useTransform } from "motion/react";
+import useHeightObserver from "../hooks/useHeightObserver";
 
 export type PageProps = {
   title: string;
@@ -12,13 +13,20 @@ export type PageProps = {
 export default function Page({ title, children }: PageProps) {
   const containerRef = useRef(null);
   const staticHeaderRef = useRef(null);
+  const stickyHeaderRef = useRef(null);
+
+  // Track sticky header height
+  const { height } = useHeightObserver({ ref: stickyHeaderRef });
+
+  // Track scroll progress to orchestrate header visibility
   const { scrollYProgress } = useScroll({
     container: containerRef,
     target: staticHeaderRef,
     layoutEffect: true,
     axis: "y",
-    offset: ["-56px start", "56px start"],
+    offset: [`${-height}px start`, `${height}px start`],
   });
+
   const staticHeaderVisibility = useTransform(
     scrollYProgress,
     [0.5, 0],
@@ -48,17 +56,21 @@ export default function Page({ title, children }: PageProps) {
         scrollSnapType: "y proximity",
       }}
     >
-      <StickyHeader title={title} visibility={stickyHeaderVisibility} />
-      <StaticHeader
+      <StickyHeader
+        ref={stickyHeaderRef}
         title={title}
+        visibility={stickyHeaderVisibility}
+      />
+      <StaticHeader
         ref={staticHeaderRef}
+        title={title}
         visibility={staticHeaderVisibility}
       />
       <Stack
         sx={{
           scrollSnapAlign: "start",
-          paddingTop: "3.5rem",
-          marginTop: "-3.5rem",
+          paddingTop: `${height}px`,
+          marginTop: `-${height}px`,
         }}
       >
         {children}

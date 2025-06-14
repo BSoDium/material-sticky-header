@@ -18,14 +18,14 @@ export default function StaticHeader({
   return (
     <Paper
       elevation={0}
+      square
       sx={{
         paddingTop: 5,
         paddingLeft: 2,
         paddingRight: 5,
-        paddingBottom: 4,
+        paddingBottom: 3,
         width: "100%",
         scrollSnapAlign: "end",
-        borderRadius: 0,
       }}
       ref={ref}
     >
