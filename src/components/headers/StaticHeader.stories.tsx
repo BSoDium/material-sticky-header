@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import StaticHeader from "./headers/StaticHeader";
+import StaticHeader from "./StaticHeader";
 
 const meta: Meta<typeof StaticHeader> = {
-  title: "StaticHeader",
+  title: "Headers/StaticHeader",
   component: StaticHeader,
   parameters: {
-    layout: "fullscreen",
+    layout: "centered",
   },
 };
 
