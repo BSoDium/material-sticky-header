@@ -14,5 +14,7 @@ export default meta;
 type Story = StoryObj<typeof StickyHeader>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    title: "Sticky Header Title",
+  },
 };
