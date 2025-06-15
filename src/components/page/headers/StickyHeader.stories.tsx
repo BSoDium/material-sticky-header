@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import StickyHeader from "./StickyHeader";
+import { MotionValue } from "motion/react";
 
 const meta: Meta<typeof StickyHeader> = {
   title: "Headers/StickyHeader",
@@ -16,5 +17,6 @@ type Story = StoryObj<typeof StickyHeader>;
 export const Default: Story = {
   args: {
     title: "Sticky Header Title",
+    visibility: new MotionValue(1),
   },
 };

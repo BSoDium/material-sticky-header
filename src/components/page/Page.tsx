@@ -3,7 +3,7 @@ import StickyHeader from "./headers/StickyHeader";
 import StaticHeader from "./headers/StaticHeader";
 import { useRef } from "react";
 import { useScroll, useTransform } from "motion/react";
-import useHeightObserver from "../hooks/useHeightObserver";
+import useHeightObserver from "../../hooks/useHeightObserver";
 
 export type PageProps = {
   title: string;

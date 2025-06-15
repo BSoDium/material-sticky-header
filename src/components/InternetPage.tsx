@@ -1,27 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import Page from "./Page";
-import { Divider, IconButton, Stack, Typography } from "@mui/material";
-import NetworkCellIcon from "@mui/icons-material/NetworkCell";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import { faker } from "@faker-js/faker";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import SignalWifi0BarOutlinedIcon from "@mui/icons-material/SignalWifi0BarOutlined";
+import NetworkCellIcon from "@mui/icons-material/NetworkCell";
 import NetworkWifi1BarOutlinedIcon from "@mui/icons-material/NetworkWifi1BarOutlined";
 import NetworkWifi2BarOutlinedIcon from "@mui/icons-material/NetworkWifi2BarOutlined";
 import NetworkWifi3BarOutlinedIcon from "@mui/icons-material/NetworkWifi3BarOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import SignalWifi0BarOutlinedIcon from "@mui/icons-material/SignalWifi0BarOutlined";
 import SignalWifi4BarOutlinedIcon from "@mui/icons-material/SignalWifi4BarOutlined";
-import { faker } from "@faker-js/faker";
-
-const meta: Meta<typeof Page> = {
-  title: "Page",
-  component: Page,
-  parameters: {
-    layout: "fullscreen",
-  },
-};
-
-export default meta;
-
-type Story = StoryObj<typeof Page>;
+import { Divider, IconButton, Stack, Typography } from "@mui/material";
+import Page from "./page/Page";
 
 const NetworkCellIcons = {
   0: SignalWifi0BarOutlinedIcon,
@@ -31,10 +18,9 @@ const NetworkCellIcons = {
   4: SignalWifi4BarOutlinedIcon,
 } as const;
 
-export const Default: Story = {
-  args: {
-    title: "Internet",
-    children: (
+export default function InternetPage() {
+  return (
+    <Page title="Internet">
       <Stack gap={1} py={1}>
         <Stack direction="row" alignItems="center" gap={2} px={2}>
           <NetworkCellIcon />
@@ -79,6 +65,6 @@ export const Default: Story = {
           );
         })}
       </Stack>
-    ),
-  },
-};
+    </Page>
+  );
+}

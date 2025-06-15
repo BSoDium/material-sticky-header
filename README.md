@@ -1,6 +1,6 @@
-# Advanced Sticky Header
+# Material Sticky Header
 
-A proof of concept implementation of Android's scroll-snap settings header behavior in React TypeScript. This project demonstrates an advanced sticky header that smoothly transitions between states based on scroll position, mimicking the native Android settings interface.
+A proof of concept implementation of Android's scroll-snap settings header behavior in React TypeScript. This project demonstrates a material sticky header that smoothly transitions between states based on scroll position, mimicking the native Android settings interface.
 
 ## Features
 
@@ -10,36 +10,16 @@ A proof of concept implementation of Android's scroll-snap settings header behav
 - **Storybook integration**: Interactive component documentation and testing
 - **Height observation**: Custom hook for monitoring element height changes
 
-## Project Structure
-
-```
-src/
-├── components/
-│   ├── headers/
-│   │   ├── StaticHeader.tsx         # Basic header component
-│   │   ├── StickyHeader.tsx         # Advanced sticky header with scroll behavior
-│   │   └── *.stories.tsx            # Storybook stories for components
-│   └── Page.tsx                     # Demo page component
-├── hooks/
-│   └── useHeightObserver.ts         # Custom hook for height observation
-└── ...
-```
-
 ## Getting Started
 
 1. **Install dependencies**:
    ```bash
-   npm install
+   yarn
    ```
 
-2. **Start development server**:
+2. **View Storybook** (for component documentation):
    ```bash
-   npm run dev
-   ```
-
-3. **View Storybook** (for component documentation):
-   ```bash
-   npm run storybook
+   yarn storybook
    ```
 
 ## Implementation Details
