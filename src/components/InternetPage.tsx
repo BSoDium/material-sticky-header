@@ -65,7 +65,6 @@ export default function InternetPage() {
           .sort((a, b) => b.networkStrength - a.networkStrength)
           .map((network) => {
             const NetworkCellIcon = NetworkCellIcons[network.networkStrength];
-
             return (
               <Button
                 key={network.key}
@@ -76,7 +75,7 @@ export default function InternetPage() {
                   textTransform: "none",
                   textAlign: "left",
                   height: "3.5rem",
-                  gap: "1rem",
+                  gap: 2.5,
                   px: 3,
                 }}
               >
@@ -102,7 +101,7 @@ export default function InternetPage() {
             justifyContent: "flex-start",
             textTransform: "none",
             height: "3.5rem",
-            gap: "1rem",
+            gap: 2.5,
             px: 3,
           }}
         >
@@ -117,9 +116,9 @@ export default function InternetPage() {
           color="inherit"
           sx={{
             justifyContent: "flex-start",
-            px: 3,
-            py: 1.75,
             textTransform: "none",
+            py: 1.75,
+            px: 3,
           }}
         >
           <Stack alignItems={"flex-start"} flex={1}>
@@ -136,9 +135,9 @@ export default function InternetPage() {
           color="inherit"
           sx={{
             justifyContent: "flex-start",
-            px: 3,
-            py: 1.75,
             textTransform: "none",
+            py: 1.75,
+            px: 3,
           }}
         >
           <Stack alignItems={"flex-start"} flex={1}>
@@ -155,9 +154,9 @@ export default function InternetPage() {
           color="inherit"
           sx={{
             justifyContent: "flex-start",
-            px: 3,
-            py: 1.75,
             textTransform: "none",
+            py: 1.75,
+            px: 3,
           }}
         >
           <Stack alignItems={"flex-start"} flex={1}>
