@@ -9,6 +9,7 @@ import SignalWifi0BarOutlinedIcon from "@mui/icons-material/SignalWifi0BarOutlin
 import SignalWifi4BarOutlinedIcon from "@mui/icons-material/SignalWifi4BarOutlined";
 import { Divider, IconButton, Stack, Typography } from "@mui/material";
 import Page from "./page/Page";
+import { useMemo } from "react";
 
 const NetworkCellIcons = {
   0: SignalWifi0BarOutlinedIcon,
@@ -19,6 +20,21 @@ const NetworkCellIcons = {
 } as const;
 
 export default function InternetPage() {
+  const networks = useMemo(() => {
+    return Array.from({ length: 100 }, (_, index) => {
+      const iconIndex = faker.number.int({
+        min: 0,
+        max: 4,
+      }) as keyof typeof NetworkCellIcons;
+      const IconComponent = NetworkCellIcons[iconIndex];
+      return {
+        key: index,
+        icon: <IconComponent />,
+        name: faker.internet.displayName(),
+      };
+    });
+  }, []);
+
   return (
     <Page title="Internet">
       <Stack gap={1} py={1}>
@@ -39,24 +55,19 @@ export default function InternetPage() {
         <Typography variant="h6" fontWeight={400} px={2} py={1}>
           Wi-Fi networks
         </Typography>
-        {Array.from({ length: 100 }, (_, index) => {
-          const iconIndex = faker.number.int({
-            min: 0,
-            max: 4,
-          }) as keyof typeof NetworkCellIcons;
-          const IconComponent = NetworkCellIcons[iconIndex];
+        {networks.map((network) => {
           return (
             <Stack
-              key={index}
+              key={network.key}
               direction="row"
               alignItems="center"
               gap={2}
               px={2}
               height="3rem"
             >
-              <IconComponent />
+              {network.icon}
               <Typography variant="subtitle1" flex="1">
-                {faker.internet.displayName()}
+                {network.name}
               </Typography>
               <IconButton disabled>
                 <LockOutlinedIcon />
