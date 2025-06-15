@@ -53,7 +53,7 @@ export const Default: Story = {
         <Typography variant="h6" fontWeight={400} px={2} py={1}>
           Wi-Fi networks
         </Typography>
-        {Array.from({ length: 100 }, () => {
+        {Array.from({ length: 100 }, (_, index) => {
           const iconIndex = faker.number.int({
             min: 0,
             max: 4,
@@ -61,6 +61,7 @@ export const Default: Story = {
           const IconComponent = NetworkCellIcons[iconIndex];
           return (
             <Stack
+              key={index}
               direction="row"
               alignItems="center"
               gap={2}

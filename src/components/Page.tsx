@@ -54,6 +54,7 @@ export default function Page({ title, children }: PageProps) {
         alignItems: "stretch",
         justifyContent: "flex-start",
         scrollSnapType: "y proximity",
+        scrollPaddingTop: `${height}px`,
       }}
     >
       <StickyHeader
@@ -69,8 +70,6 @@ export default function Page({ title, children }: PageProps) {
       <Stack
         sx={{
           scrollSnapAlign: "start",
-          paddingTop: `${height}px`,
-          marginTop: `-${height}px`,
         }}
       >
         {children}
