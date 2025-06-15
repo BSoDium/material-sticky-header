@@ -6,6 +6,7 @@ import {
   type CSSProperties,
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import RestartAltOutlinedIcon from "@mui/icons-material/RestartAltOutlined";
 import type { MotionValue } from "motion";
 import { motion, useTransform } from "motion/react";
 
@@ -50,7 +51,7 @@ export default function StickyHeader({
       <IconButton>
         <ArrowBackIcon />
       </IconButton>
-      <Typography>
+      <Typography variant="h6" fontWeight={400} flex={1}>
         <motion.span
           style={{
             opacity: visibility,
@@ -59,6 +60,9 @@ export default function StickyHeader({
           {title}
         </motion.span>
       </Typography>
+      <IconButton>
+        <RestartAltOutlinedIcon />
+      </IconButton>
     </Stack>
   );
 }
