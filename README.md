@@ -1,54 +1,53 @@
-# React + TypeScript + Vite
+# Advanced Sticky Header
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A proof of concept implementation of Android's scroll-snap settings header behavior in React TypeScript. This project demonstrates an advanced sticky header that smoothly transitions between states based on scroll position, mimicking the native Android settings interface.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Scroll-responsive header**: Header adapts to scroll position with smooth transitions
+- **Android-inspired design**: Replicates the scroll behavior found in Android's settings app
+- **TypeScript**: Fully typed React components for better development experience
+- **Storybook integration**: Interactive component documentation and testing
+- **Height observation**: Custom hook for monitoring element height changes
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+src/
+├── components/
+│   ├── headers/
+│   │   ├── StaticHeader.tsx         # Basic header component
+│   │   ├── StickyHeader.tsx         # Advanced sticky header with scroll behavior
+│   │   └── *.stories.tsx            # Storybook stories for components
+│   └── Page.tsx                     # Demo page component
+├── hooks/
+│   └── useHeightObserver.ts         # Custom hook for height observation
+└── ...
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+2. **Start development server**:
+   ```bash
+   npm run dev
+   ```
+
+3. **View Storybook** (for component documentation):
+   ```bash
+   npm run storybook
+   ```
+
+## Implementation Details
+
+The sticky header implementation uses:
+- Scroll event listeners to detect scroll position
+- CSS transforms with [**motion**](https://motion.dev/) for smooth animations
+- Height observation to handle dynamic content
+- State management for header visibility transitions
+
+This POC demonstrates how to create fluid, native-feeling scroll interactions in web applications using modern React patterns and TypeScript.
