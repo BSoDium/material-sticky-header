@@ -3,7 +3,7 @@ import StickyHeader from "./headers/StickyHeader";
 import StaticHeader from "./headers/StaticHeader";
 import { useRef } from "react";
 import { useScroll, useTransform } from "motion/react";
-import useHeightObserver from "../hooks/useHeightObserver";
+import useHeightObserver from "../../hooks/useHeightObserver";
 
 export type PageProps = {
   title: string;
@@ -54,6 +54,7 @@ export default function Page({ title, children }: PageProps) {
         alignItems: "stretch",
         justifyContent: "flex-start",
         scrollSnapType: "y proximity",
+        scrollPaddingTop: `${height}px`,
       }}
     >
       <StickyHeader
@@ -69,8 +70,6 @@ export default function Page({ title, children }: PageProps) {
       <Stack
         sx={{
           scrollSnapAlign: "start",
-          paddingTop: `${height}px`,
-          marginTop: `-${height}px`,
         }}
       >
         {children}

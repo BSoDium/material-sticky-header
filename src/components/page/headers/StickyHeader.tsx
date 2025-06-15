@@ -31,11 +31,11 @@ export default function StickyHeader({
       direction="row"
       aria-label="Back"
       sx={{
-        zIndex: 1000,
-        position: "sticky",
-        alignItems: "center",
         backgroundColor: `color-mix(in srgb, ${palette.background.default}, ${palette.grey[200]} var(--background-darkness))`,
+        alignItems: "center",
+        position: "sticky",
         width: "100%",
+        zIndex: 1000,
         padding: 1,
         gap: 2,
         top: 0,
