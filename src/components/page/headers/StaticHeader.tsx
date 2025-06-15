@@ -20,7 +20,7 @@ export default function StaticHeader({
       elevation={0}
       square
       sx={{
-        paddingTop: 5,
+        paddingTop: 6,
         paddingLeft: 2,
         paddingRight: 5,
         paddingBottom: 3,
