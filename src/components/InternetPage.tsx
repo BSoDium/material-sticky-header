@@ -45,7 +45,12 @@ export default function InternetPage() {
         <Stack direction="row" alignItems="center" gap={2} px={3} mb={1}>
           <NetworkCellIcon sx={{ mr: 1 }} />
           <Stack flex={1}>
-            <Typography variant="h6" fontWeight={400} lineHeight={1.4}>
+            <Typography
+              variant="h6"
+              component="span"
+              fontWeight={400}
+              lineHeight={1.4}
+            >
               SFR
             </Typography>
             <Typography variant="body2" color="text.secondary">
@@ -53,12 +58,19 @@ export default function InternetPage() {
             </Typography>
           </Stack>
           <Divider orientation="vertical" variant="middle" flexItem />
-          <IconButton>
+          <IconButton aria-label="Settings" size="large">
             <SettingsOutlinedIcon />
           </IconButton>
         </Stack>
         <Divider variant="fullWidth" sx={{ mb: 1 }} />
-        <Typography variant="h6" fontWeight={400} px={3} py={1} mb={1}>
+        <Typography
+          variant="h6"
+          component="span"
+          fontWeight={400}
+          px={3}
+          py={1}
+          mb={1}
+        >
           Wi-Fi networks
         </Typography>
         {networks
@@ -80,7 +92,13 @@ export default function InternetPage() {
                 }}
               >
                 <NetworkCellIcon />
-                <Typography variant="h6" fontWeight={400} flex="1" noWrap>
+                <Typography
+                  variant="h6"
+                  component="span"
+                  fontWeight={400}
+                  flex="1"
+                  noWrap
+                >
                   {network.name}
                 </Typography>
                 <Stack
@@ -106,7 +124,7 @@ export default function InternetPage() {
           }}
         >
           <AddIcon />
-          <Typography variant="h6" fontWeight={400}>
+          <Typography variant="h6" component="span" fontWeight={400}>
             Add network
           </Typography>
         </Button>
@@ -122,7 +140,12 @@ export default function InternetPage() {
           }}
         >
           <Stack alignItems={"flex-start"} flex={1}>
-            <Typography variant="h6" fontWeight={400} lineHeight={1.4}>
+            <Typography
+              variant="h6"
+              component="span"
+              fontWeight={400}
+              lineHeight={1.4}
+            >
               Network preferences
             </Typography>
             <Typography variant="body2" color="textSecondary" fontWeight={400}>
@@ -141,7 +164,12 @@ export default function InternetPage() {
           }}
         >
           <Stack alignItems={"flex-start"} flex={1}>
-            <Typography variant="h6" fontWeight={400} lineHeight={1.4}>
+            <Typography
+              variant="h6"
+              component="span"
+              fontWeight={400}
+              lineHeight={1.4}
+            >
               Saved networks
             </Typography>
             <Typography variant="body2" color="textSecondary" fontWeight={400}>
@@ -160,7 +188,12 @@ export default function InternetPage() {
           }}
         >
           <Stack alignItems={"flex-start"} flex={1}>
-            <Typography variant="h6" fontWeight={400} lineHeight={1.4}>
+            <Typography
+              variant="h6"
+              component="span"
+              fontWeight={400}
+              lineHeight={1.4}
+            >
               Non-operator data usage
             </Typography>
             <Typography variant="body2" color="textSecondary" fontWeight={400}>
