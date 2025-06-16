@@ -12,7 +12,7 @@ import { Button, Divider, IconButton, Stack, Typography } from "@mui/material";
 import Page from "./page/Page";
 import { useMemo } from "react";
 
-const NetworkCellIcons = {
+const networkCellIcons = {
   0: SignalWifi0BarOutlinedIcon,
   1: NetworkWifi1BarOutlinedIcon,
   2: NetworkWifi2BarOutlinedIcon,
@@ -20,15 +20,34 @@ const NetworkCellIcons = {
   4: SignalWifi4BarOutlinedIcon,
 } as const;
 
+const networkProviders = [
+  "SFR",
+  "Orange",
+  "Free",
+  "Prixtel",
+  "T Mobile",
+  "Lycamobile",
+  "Vodafone",
+  "O2",
+  "Three",
+  "Google Fi",
+  "AT&T",
+  "Verizon",
+  "Sprint",
+  "Cricket Wireless",
+];
+
+const networkGenerations = ["5G", "4G LTE", "3G", "2G"];
+
 export default function InternetPage() {
-  const networks = useMemo(() => {
+  const wifiNetworks = useMemo(() => {
     return Array.from(
       { length: faker.number.int({ min: 15, max: 20 }) },
       (_, index) => {
         const networkStrength = faker.number.int({
           min: 0,
           max: 4,
-        }) as keyof typeof NetworkCellIcons;
+        }) as keyof typeof networkCellIcons;
         return {
           key: index,
           networkStrength,
@@ -37,6 +56,14 @@ export default function InternetPage() {
         };
       }
     );
+  }, []);
+
+  const networkProvider = useMemo(() => {
+    return faker.helpers.arrayElement(networkProviders);
+  }, []);
+
+  const networkGeneration = useMemo(() => {
+    return faker.helpers.arrayElement(networkGenerations);
   }, []);
 
   return (
@@ -51,10 +78,10 @@ export default function InternetPage() {
               fontWeight={400}
               lineHeight={1.4}
             >
-              SFR
+              {networkProvider}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Connected/5G
+              Connected/{networkGeneration}
             </Typography>
           </Stack>
           <Divider orientation="vertical" variant="middle" flexItem />
@@ -73,10 +100,10 @@ export default function InternetPage() {
         >
           Wi-Fi networks
         </Typography>
-        {networks
+        {wifiNetworks
           .sort((a, b) => b.networkStrength - a.networkStrength)
           .map((network) => {
-            const NetworkCellIcon = NetworkCellIcons[network.networkStrength];
+            const NetworkCellIcon = networkCellIcons[network.networkStrength];
             return (
               <Button
                 key={network.key}
