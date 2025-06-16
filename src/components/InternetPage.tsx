@@ -42,7 +42,7 @@ export default function InternetPage() {
   return (
     <Page title="Internet">
       <Stack py={1}>
-        <Stack direction="row" alignItems="center" gap={2} px={3} mb={1}>
+        <Stack direction="row" alignItems="center" gap={2} px={3} mb={1.5}>
           <NetworkCellIcon sx={{ mr: 1 }} />
           <Stack flex={1}>
             <Typography
