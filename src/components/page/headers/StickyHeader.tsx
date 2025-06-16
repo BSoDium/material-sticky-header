@@ -30,7 +30,6 @@ export default function StickyHeader({
     <Stack
       component={motion.div}
       direction="row"
-      aria-label="Back"
       sx={{
         backgroundColor: `color-mix(in srgb, ${palette.background.default}, ${palette.grey[200]} var(--background-darkness))`,
         alignItems: "center",
@@ -48,7 +47,7 @@ export default function StickyHeader({
       }
       ref={ref}
     >
-      <IconButton>
+      <IconButton aria-label="Back">
         <ArrowBackIcon />
       </IconButton>
       <Typography variant="h6" fontWeight={400} flex={1}>
@@ -60,7 +59,7 @@ export default function StickyHeader({
           {title}
         </motion.span>
       </Typography>
-      <IconButton>
+      <IconButton aria-label="Fix connectivity">
         <RestartAltOutlinedIcon />
       </IconButton>
     </Stack>
